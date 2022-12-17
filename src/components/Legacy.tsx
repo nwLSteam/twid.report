@@ -17,20 +17,6 @@ function updateStateFromAPI( setList: Dispatch<SetStateAction<ListType>> ) {
 function componentDidMount( setList: Dispatch<SetStateAction<ListType>> ) {
 	updateStateFromAPI( setList );
 	setInterval( () => updateStateFromAPI( setList ), 10000 );
-
-
-	if ( !( "Notification" in window ) ) {
-		console.log( "This browser does not support desktop notification" );
-
-	} else {
-		if ( Notification.permission !== "granted"
-			&& Notification.permission !== "denied" ) {
-			Notification.requestPermission().then( response => {
-				console.log( response );
-			} );
-		}
-	}
-
 }
 
 function Legacy() {
