@@ -1,4 +1,5 @@
 import React from "react";
+import LatestTWAB, { LatestTWABLinkColor, LatestTWABStatusColor } from "../parts/LatestTWAB";
 
 const MONTH_NAMES = [
 	"January", "February", "March", "April", "May", "June",
@@ -73,7 +74,7 @@ function timeAgo( dateParam: Date | string ): string {
 	return getFormattedDate( date ); // 10. January 2017. at 10:20
 }
 
-export default class LatestTwab extends React.Component<{ list: any | null }> {
+export default class LegacyLatestTWAB extends React.Component<{ list: any | null }> {
 
 	componentDidUpdate( prevProps: Readonly<{ list: any }>, prevState: Readonly<{}>, snapshot?: any ) {
 		if ( this.props.list == null ) {
@@ -116,38 +117,28 @@ export default class LatestTwab extends React.Component<{ list: any | null }> {
 
 		let now = new Date();
 
-		let class_status = "";
-		let class_twab = "";
+		let class_status: LatestTWABStatusColor;
+		let class_twab: LatestTWABLinkColor = LatestTWABLinkColor.DEFAULT;
 		let status = "";
 
 		let diff = Math.abs( now.getTime() - date.getTime() );
 
 		if ( diff < day_in_ms ) {
-			class_status = "twab__status--green";
-			class_twab = "twab__link--active";
+			class_status = LatestTWABStatusColor.GREEN;
+			class_twab = LatestTWABLinkColor.ACTIVE;
 			status = timeAgo( date );
 		} else if ( diff < ( 6 * day_in_ms ) ) {
-			class_status = "twab__status--yellow";
+			class_status = LatestTWABStatusColor.YELLOW;
 			status = "posted " + timeAgo( date );
 		} else {
-			class_status = "twab__status--red";
+			class_status = LatestTWABStatusColor.RED;
 			status = "Waiting for newest TWAB...";
 		}
 
-		return (
-			<div className={"twab"}>
-				<h1 style={{ marginBottom: "40px", marginTop: "40px" }}>TWAB Report</h1>
-				<span>Latest TWAB:</span>
-				<div className={"twab__link"}>
-					<a className={class_twab}
-					   href={"https://www.bungie.net/en/Explore/Detail/News/" + first.contentId}
-					   target={"_blank"}
-					   rel={"noreferrer"}>
-						{first.properties.Title}
-					</a>
-				</div>
-				<span className={"twab__status " + class_status}>{status}</span>
-			</div>
-		);
+		return <LatestTWAB title={first.properties.Title}
+		                   link={"https://www.bungie.net/en/Explore/Detail/News/" + first.contentId}
+		                   status={status}
+		                   link_color={class_twab}
+		                   status_color={class_status} />;
 	}
 }

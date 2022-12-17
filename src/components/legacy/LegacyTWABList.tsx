@@ -1,6 +1,8 @@
 import React from "react";
+import TWABList from "../parts/TWABList";
+import TWABListEntry from "../parts/TWABListEntry";
 
-export default class TwabList extends React.Component<{ list: any | null }> {
+export default class LegacyTWABList extends React.Component<{ list: any | null }> {
 	render() {
 		if ( this.props.list == null ) {
 			return null;
@@ -22,19 +24,10 @@ export default class TwabList extends React.Component<{ list: any | null }> {
 				+ "/" + ( date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate() )
 				+ "/" + date.getUTCFullYear();
 			list.push(
-				<li>
-					<a href={url_root + id}
-					   target={"_blank"}
-					   rel="noreferrer">
-						{date_string}
-					</a>
-				</li>,
+				<TWABListEntry key={id} text={date_string} url={url_root + id} />,
 			);
 		}
 
-		return <div className={"list"}>
-			<h3 style={{ textAlign: "center" }}>Previous TWABs:</h3>
-			{list}
-		</div>;
+		return <TWABList>{list}</TWABList>;
 	}
 }
