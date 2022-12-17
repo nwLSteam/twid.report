@@ -1,0 +1,120 @@
+a {
+	text-decoration: none;
+	color: white;
+
+	&:hover {
+		color: gray;
+	}
+}
+
+li {
+	margin-bottom: 5px;
+}
+
+body {
+	background-color: #282C34;
+}
+
+.App-header {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 60vh;
+	color: white;
+}
+
+$glow-1: #FFFFFF;
+$glow-3: lightgreen;
+$glow-2: lighten($glow-3, 10%);
+
+@keyframes glow {
+	from {
+		text-shadow: 0 0 10px $glow-1,
+		0 0 20px $glow-1,
+		0 0 30px $glow-2,
+		0 0 40px $glow-2,
+		0 0 50px $glow-2,
+		0 0 60px $glow-2,
+		0 0 70px $glow-2;
+	}
+	to {
+		text-shadow: 0 0 20px $glow-1,
+		0 0 30px $glow-3,
+		0 0 40px $glow-3,
+		0 0 50px $glow-3,
+		0 0 60px $glow-3,
+		0 0 70px $glow-3,
+		0 0 80px $glow-3;
+	}
+}
+
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 10px $glow-1,
+		0 0 20px $glow-1,
+		0 0 30px $glow-2,
+		0 0 40px $glow-2,
+		0 0 50px $glow-2,
+		0 0 60px $glow-2,
+		0 0 70px $glow-2;
+	}
+	to {
+		text-shadow: 0 0 20px $glow-1,
+		0 0 30px $glow-3,
+		0 0 40px $glow-3,
+		0 0 50px $glow-3,
+		0 0 60px $glow-3,
+		0 0 70px $glow-3,
+		0 0 80px $glow-3;
+	}
+}
+
+.twab {
+	margin: 0 15px 30px 15px;
+	text-align: center;
+
+	&__ {
+		&link {
+			font-size: 2rem;
+			font-weight: 700;
+			margin: 10px 0;
+			padding: 10px 20px;
+			border: 1px solid white;
+
+			&-- {
+				&active {
+					-moz-animation: glow 1s ease-in-out infinite alternate;
+					-webkit-animation: glow 1s ease-in-out infinite alternate;
+					animation: glow 1s ease-in-out infinite alternate;
+
+					text-decoration: none;
+					color: green;
+
+					&:hover {
+						color: white;
+					}
+				}
+			}
+		}
+
+		&status {
+			font-size: 1.5rem;
+			font-weight: 600;
+
+			&-- {
+				&green {
+					color: white;
+				}
+
+				&yellow {
+					color: yellow;
+				}
+
+				&red {
+					color: indianred;
+				}
+			}
+		}
+	}
+}
