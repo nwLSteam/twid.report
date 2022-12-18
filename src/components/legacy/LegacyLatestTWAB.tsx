@@ -4,7 +4,7 @@ import LatestTWAB, { LatestTWABLinkColor, LatestTWABStatusColor } from "../parts
 
 export default class LegacyLatestTWAB extends React.Component<{ list: any | null }> {
 
-	componentDidUpdate( prevProps: Readonly<{ list: any }>, prevState: Readonly<{}>, snapshot?: any ) {
+	componentDidUpdate( prevProps: Readonly<{ list: any }>, _prevState: Readonly<{}>, _snapshot?: any ) {
 		if ( this.props.list == null ) {
 			return;
 		}

@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
 import ContentStackBlock from "./components/ContentStackBlock";
-import LegacyBlock from "./components/LegacyBlock";
 
 export default function App() {
 	if ( !( "Notification" in window ) ) {

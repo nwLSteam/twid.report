@@ -57,7 +57,7 @@ function ContentStackLatestTWAB( props: {
 
 	let class_status: LatestTWABStatusColor;
 	let class_twab: LatestTWABLinkColor = LatestTWABLinkColor.DEFAULT;
-	let status = "";
+	let status : string;
 
 	let diff = Math.abs( now.getTime() - date.getTime() );
 
