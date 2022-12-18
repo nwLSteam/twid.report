@@ -17,10 +17,10 @@ function componentDidUpdate( newList: Array<PostObject> | undefined, prevList: A
 	}
 
 	let old = prevList[0];
-	let old_date = new Date( old.created_at );
+	let old_date = new Date( old.date );
 
 	let newest = newList[0];
-	let newest_date = new Date( newest.created_at );
+	let newest_date = new Date( newest.date );
 
 	if ( newest_date.getTime() !== old_date.getTime() ) {
 		if ( Notification.permission === "granted" ) {
@@ -45,7 +45,7 @@ function ContentStackLatestTWAB( props: {
 	}
 
 	let first = props.list[0];
-	let date = new Date( first.created_at );
+	let date = new Date( first.date );
 
 	const day_in_ms =
 		      24 /* hours */

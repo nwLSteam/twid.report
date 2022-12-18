@@ -45,7 +45,7 @@ function executeQuery( stack: ContentStackInstance, setList: Dispatch<SetStateAc
 
 	// set filter parameters
 	let executable = query.regex( "title", "^This Week at Bungie", "i" )
-	                      .descending( "created_at" )
+	                      .descending( "date" )
 	                      .limit( 5 );
 
 	// execute

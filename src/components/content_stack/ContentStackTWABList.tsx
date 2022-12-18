@@ -16,7 +16,7 @@ function LegacyTWABList( props: {
 	for ( let i = 1; i < 4; i++ ) {
 		let article = props.list[i];
 
-		const date = new Date( article.created_at );
+		const date = new Date( article.date );
 		let date_string = "This Week at Bungie — "
 			+ ( ( date.getUTCMonth() + 1 ) < 10 ? "0" + ( date.getUTCMonth() + 1 ) : ( date.getUTCMonth() + 1 ) )
 			+ "/" + ( date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate() )
