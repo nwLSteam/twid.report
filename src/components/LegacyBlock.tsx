@@ -16,10 +16,10 @@ function updateStateFromAPI( setList: Dispatch<SetStateAction<ListType>> ) {
 
 function componentDidMount( setList: Dispatch<SetStateAction<ListType>> ) {
 	updateStateFromAPI( setList );
-	setInterval( () => updateStateFromAPI( setList ), 10000 );
+	// setInterval( () => updateStateFromAPI( setList ), 10000 );
 }
 
-function Legacy() {
+function LegacyBlock() {
 
 
 	let [ list, setList ] = useState<ListType>( null );
@@ -38,4 +38,4 @@ function Legacy() {
 	</>;
 }
 
-export default Legacy;
+export default LegacyBlock;

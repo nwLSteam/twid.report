@@ -41,6 +41,14 @@ let API = {
 					return API.make_call( uri, "GET" );
 				},
 			},
+			Settings: function () {
+				let path = `/Platform/Settings`;
+				let uri = encodeURI(
+					`https://www.bungie.net/${path}/`,
+				);
+
+				return API.make_call( uri, "GET" );
+			},
 		},
 
 		User: {

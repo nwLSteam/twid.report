@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.scss";
-import Legacy from "./components/Legacy";
+import ContentStackBlock from "./components/ContentStackBlock";
+import LegacyBlock from "./components/LegacyBlock";
 
 export default function App() {
 	if ( !( "Notification" in window ) ) {
@@ -18,7 +19,7 @@ export default function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Legacy />
+				<ContentStackBlock />
 
 				<div style={{
 					marginTop: "10px",
