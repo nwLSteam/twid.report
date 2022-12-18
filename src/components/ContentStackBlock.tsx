@@ -13,7 +13,9 @@ function getTokensFromBungie( setTokens: Dispatch<SetStateAction<ContentStackTok
 	   .then( result => {
 		   const tokens: ContentStackTokenReply = JSON.parse( result ).Response.systems.ContentStack.parameters;
 
-		   const [ environment, token ] = tokens.EnvPlusDeliveryToken.match( /(?<=\{)[^}]+(?=})/g ) as Array<string>;
+		   const [ environment, token ] =
+			         ( tokens.EnvPlusDeliveryToken.match( /\{[^}]+}/g ) as Array<string> )
+				         .map( x => x.slice( 1, -1 ) );
 
 		   setTokens( {
 			              ApiKey: tokens.ApiKey,
