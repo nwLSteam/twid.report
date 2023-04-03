@@ -61,9 +61,9 @@ export function timeAgo( dateParam: Date | string ): string {
 	} else if ( minutes < 60 ) {
 		return `${minutes} minutes ago`;
 	} else if ( isToday ) {
-		return getFormattedDate( date, "Today" ); // Today at 10:20
+		return getFormattedDate( date, "today" ); // Today at 10:20
 	} else if ( isYesterday ) {
-		return getFormattedDate( date, "Yesterday" ); // Yesterday at 10:20
+		return getFormattedDate( date, "yesterday" ); // Yesterday at 10:20
 	} else if ( isThisYear ) {
 		return getFormattedDate( date, false, true ); // 10. January at 10:20
 	}

@@ -45,7 +45,7 @@ function ContentStackLatestTWAB( props: {
 	}
 
 	let first = props.list[0];
-	let date = new Date( first.date );
+	let date = new Date( first.publish_details.time ?? first.date );
 
 	const day_in_ms =
 		      24 /* hours */
