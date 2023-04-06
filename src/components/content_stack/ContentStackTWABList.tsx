@@ -17,10 +17,11 @@ function LegacyTWABList( props: {
 		let article = props.list[i];
 
 		const date = new Date( article.date );
-		let date_string = "This Week at Bungie — "
-			+ ( ( date.getUTCMonth() + 1 ) < 10 ? "0" + ( date.getUTCMonth() + 1 ) : ( date.getUTCMonth() + 1 ) )
-			+ "/" + ( date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate() )
-			+ "/" + date.getUTCFullYear();
+		let date_string =
+			    ( ( date.getUTCMonth() + 1 ) < 10 ? "0" + ( date.getUTCMonth() + 1 ) : ( date.getUTCMonth() + 1 ) )
+			    + "/" + ( date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate() )
+			    + "/" + date.getUTCFullYear();
+		date_string += ` — ${article.subtitle}`;
 		list.push(
 			<TWABListEntry key={article.uid} text={date_string} url={url_root + article.url.hosted_url} />,
 		);

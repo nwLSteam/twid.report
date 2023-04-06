@@ -1,4 +1,5 @@
 import React from "react";
+import { PostObject } from "../../res/ContentStackData";
 
 export enum LatestTWABLinkColor {
 	DEFAULT,
@@ -15,13 +16,15 @@ function LatestTWAB( props: {
 	title: string,
 	link: string,
 	status: string,
+	data?: PostObject,
 	link_color: LatestTWABLinkColor,
 	status_color: LatestTWABStatusColor,
 } ) {
+
 	const twab_class = ( () => {
 		switch ( props.link_color ) {
 			case LatestTWABLinkColor.ACTIVE:
-				return "";
+				return "twab__wrapper--active";
 			case LatestTWABLinkColor.DEFAULT:
 			default:
 				return "";
@@ -41,9 +44,34 @@ function LatestTWAB( props: {
 		}
 	} )();
 
+
+	if ( props.data ) {
+		return (
+			<div className={"twab"}>
+				<h1 className={"twab__heading"}>TWAB Report</h1>
+				<span>Latest TWAB:</span>
+				<a href={props.link}
+				   target={"_blank"}
+				   rel={"noreferrer"}
+				   className={"twab__wrapper"}>
+					<div className="twab__image">
+						<img src={props.data.image.url} alt={"TWAB header"} />
+						<div className={"twab__link " + twab_class}>
+							<div className="twab__title">{props.title}</div>
+							<div className="twab__subtitle">{props.data.subtitle}</div>
+						</div>
+					</div>
+				</a>
+
+				<span className={status_class}>{props.status}</span>
+			</div>
+		);
+	}
+
+	// fallback
 	return (
 		<div className={"twab"}>
-			<h1 style={{ marginBottom: "40px", marginTop: "40px" }}>TWAB Report</h1>
+			<h1 className={"twab__heading"}>TWAB Report</h1>
 			<span>Latest TWAB:</span>
 			<div className={"twab__link"}>
 				<a className={twab_class}

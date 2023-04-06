@@ -44,7 +44,7 @@ function ContentStackLatestTWAB( props: {
 		return null;
 	}
 
-	let first = props.list[0];
+	let first : PostObject = props.list[0];
 	let date = new Date( first.publish_details.time ?? first.date );
 
 	const day_in_ms =
@@ -76,6 +76,7 @@ function ContentStackLatestTWAB( props: {
 	return <LatestTWAB title={first.title}
 	                   link={"https://www.bungie.net/7/en/news/article" + first.url.hosted_url}
 	                   status={status}
+	                   data={first}
 	                   link_color={class_twab}
 	                   status_color={class_status} />;
 }

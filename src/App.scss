@@ -75,27 +75,81 @@ $glow-2: lighten($glow-3, 10%);
 	text-align: center;
 
 	&__ {
-		&link {
-			font-size: 2rem;
-			font-weight: 700;
-			margin: 10px 0;
-			padding: 10px 20px;
+		&heading {
+			margin-bottom: 40px;
+			margin-top: 40px;
+			font-weight: lighter;
+			font-size: 2.5rem;
+		}
+
+		&wrapper {
+			padding: 10px;
 			border: 1px solid white;
+			display: block;
+			margin: 10px 0;
+
+
+		}
+
+		&link {
+			z-index: 10;
+			padding: 10px;
+			position: absolute;
+			width: 500px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			line-height: initial;
 
 			&-- {
 				&active {
-					-moz-animation: glow 1s ease-in-out infinite alternate;
-					-webkit-animation: glow 1s ease-in-out infinite alternate;
-					animation: glow 1s ease-in-out infinite alternate;
+					background-image: radial-gradient(rgba(0, 255, 0, 0.2), rgba(255, 0, 0, 0));
 
-					text-decoration: none;
-					color: green;
+					.twab__title {
+						-moz-animation: glow 1s ease-in-out infinite alternate;
+						-webkit-animation: glow 1s ease-in-out infinite alternate;
+						animation: glow 1s ease-in-out infinite alternate;
 
-					&:hover {
+						text-decoration: none;
+						color: green;
+					}
+
+					&:hover * {
 						color: white;
 					}
 				}
 			}
+		}
+
+		&title {
+			font-size: 2rem;
+			font-weight: 700;
+		}
+
+		&subtitle {
+			margin-top: 5px;
+			color: white;
+		}
+
+		&tagline {
+			display: block;
+			margin-top: 5px;
+		}
+
+		&image {
+			max-width: 600px;
+
+			> img {
+				width: 100%;
+			}
+
+			z-index: 99;
+			position: relative;
+			margin: 0;
+			padding: 0;
+			line-height: 0;
 		}
 
 		&status {
