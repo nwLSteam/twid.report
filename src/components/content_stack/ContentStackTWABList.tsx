@@ -21,9 +21,14 @@ function LegacyTWABList( props: {
 			    ( ( date.getUTCMonth() + 1 ) < 10 ? "0" + ( date.getUTCMonth() + 1 ) : ( date.getUTCMonth() + 1 ) )
 			    + "/" + ( date.getUTCDate() < 10 ? "0" + date.getUTCDate() : date.getUTCDate() )
 			    + "/" + date.getUTCFullYear();
-		date_string += ` — ${article.subtitle}`;
+
+		let text = <>
+		 <div className="list__entry-heading">{date_string}</div>
+		 <div className="list__entry-text">{article.subtitle}</div>
+		</>;
+
 		list.push(
-			<TWABListEntry key={article.uid} text={date_string} url={url_root + article.url.hosted_url} />,
+			<TWABListEntry key={article.uid} text={text} url={url_root + article.url.hosted_url} />,
 		);
 	}
 

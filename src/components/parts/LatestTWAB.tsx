@@ -54,8 +54,9 @@ function LatestTWAB( props: {
 				   target={"_blank"}
 				   rel={"noreferrer"}
 				   className={"twab__wrapper"}>
-					<div className="twab__image">
-						<img src={props.data.image.url} alt={"TWAB header"} />
+					<div className="twab__image" style={{
+						backgroundImage: `url(${props.data.image.url})`
+					}}>
 						<div className={"twab__link " + twab_class}>
 							<div className="twab__title">{props.title}</div>
 							<div className="twab__subtitle">{props.data.subtitle}</div>

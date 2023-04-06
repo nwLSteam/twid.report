@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 function TWABListEntry( props: {
-	text: string,
+	text: string | ReactNode,
 	url: string
 } ) {
 	return <li>
