@@ -24,7 +24,7 @@ function LatestTWAB( props: {
 	const twab_class = ( () => {
 		switch ( props.link_color ) {
 			case LatestTWABLinkColor.ACTIVE:
-				return "twab__wrapper--active";
+				return "twab__link--active";
 			case LatestTWABLinkColor.DEFAULT:
 			default:
 				return "";

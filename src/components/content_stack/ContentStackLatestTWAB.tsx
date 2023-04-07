@@ -64,7 +64,7 @@ function ContentStackLatestTWAB( props: {
 	if ( diff < day_in_ms ) {
 		class_status = LatestTWABStatusColor.GREEN;
 		class_twab = LatestTWABLinkColor.ACTIVE;
-		status = timeAgo( date );
+		status = "posted " + timeAgo( date );
 	} else if ( diff < ( 6 * day_in_ms ) ) {
 		class_status = LatestTWABStatusColor.YELLOW;
 		status = "posted " + timeAgo( date );
