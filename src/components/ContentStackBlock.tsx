@@ -46,7 +46,9 @@ function executeQuery( stack: ContentStackInstance, setList: Dispatch<SetStateAc
 	let query = stack.ContentType( "news_article" ).Query();
 
 	// set filter parameters
-	let executable = query.regex( "title", "^This Week at Bungie", "i" )
+	const filter = "^(?:This Week at Bungie)|(?:This Week In Destiny)"
+
+	let executable = query.regex( "title", filter, "i" )
 	                      .descending( "date" )
 	                      .limit( 5 );
 

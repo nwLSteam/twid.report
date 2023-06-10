@@ -48,8 +48,8 @@ function LatestTWAB( props: {
 	if ( props.data ) {
 		return (
 			<div className={"twab"}>
-				<h1 className={"twab__heading"}>TWAB Report</h1>
-				<span>Latest TWAB:</span>
+				<h1 className={"twab__heading"}>TWID Report</h1>
+				<span>Latest TWID:</span>
 				<a href={props.link}
 				   target={"_blank"}
 				   rel={"noreferrer"}
