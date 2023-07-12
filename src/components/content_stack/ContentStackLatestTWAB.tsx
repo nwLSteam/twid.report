@@ -27,7 +27,7 @@ function componentDidUpdate( newList: Array<PostObject> | undefined, prevList: A
 			const options = {
 				body: newest.title,
 			};
-			new Notification( "TWAB dropped!", options );
+			new Notification( "TWID dropped!", options );
 		}
 	}
 }
@@ -70,7 +70,7 @@ function ContentStackLatestTWAB( props: {
 		status = "posted " + timeAgo( date );
 	} else {
 		class_status = LatestTWABStatusColor.RED;
-		status = "Waiting for newest TWAB...";
+		status = "Waiting for newest TWID...";
 	}
 
 	return <LatestTWAB title={first.title}

@@ -6,7 +6,7 @@ import LegacyTWABList from "./legacy/LegacyTWABList";
 type ListType = null | object;
 
 function updateStateFromAPI( setList: Dispatch<SetStateAction<ListType>> ) {
-	console.log( "Updating TWAB list..." );
+	console.log( "Updating TWID list..." );
 	API.requests.Platform.Content.Search( "en", "news", "This Week at Bungie" )
 	   .then( list => {
 		   setList( JSON.parse( list ) );

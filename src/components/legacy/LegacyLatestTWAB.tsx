@@ -24,7 +24,7 @@ export default class LegacyLatestTWAB extends React.Component<{ list: any | null
 				const options = {
 					body: newest.properties.Title,
 				};
-				new Notification( "TWAB dropped!", options );
+				new Notification( "TWID dropped!", options );
 			}
 		}
 	}
@@ -60,7 +60,7 @@ export default class LegacyLatestTWAB extends React.Component<{ list: any | null
 			status = "posted " + timeAgo( date );
 		} else {
 			class_status = LatestTWABStatusColor.RED;
-			status = "Waiting for newest TWAB...";
+			status = "Waiting for newest TWID...";
 		}
 
 		return <LatestTWAB title={first.properties.Title}

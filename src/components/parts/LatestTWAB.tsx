@@ -72,7 +72,7 @@ function LatestTWAB( props: {
 	// fallback
 	return (
 		<div className={"twab"}>
-			<h1 className={"twab__heading"}>TWAB Report</h1>
+			<h1 className={"twab__heading"}>TWID Report</h1>
 			<span>Latest TWAB:</span>
 			<div className={"twab__link"}>
 				<a className={twab_class}
